@@ -4,6 +4,7 @@ Settings common to all instances of the project.
 
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 APP_DIRS  = os.path.join(BASE_DIR, 'espacesis')
@@ -237,3 +238,9 @@ BOOTSTRAP4 = {
         'inline': 'bootstrap4.renderers.InlineFieldRenderer',
     },
 }
+
+#Login Redirect
+LOGIN_REDIRECT_URL = reverse_lazy("home")
+
+#Logout Redirect
+LOGOUT_REDIRECT_URL = reverse_lazy("home")

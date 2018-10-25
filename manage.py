@@ -3,7 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "espacesis.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
     try:
         from django.core.management import execute_from_command_line
     except ImportError:
@@ -19,4 +19,10 @@ if __name__ == "__main__":
                 "forget to activate a virtual environment?"
             )
         raise
+    # this allows easy placement of apps within the interior
+    #espacesis repository
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    sys.path.append(os.path.join(current_path, "espacesis"))    
     execute_from_command_line(sys.argv)
+
+

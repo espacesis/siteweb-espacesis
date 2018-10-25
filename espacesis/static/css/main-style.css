@@ -1,0 +1,36 @@
+@font-face{
+    font-family: 'source';
+    src: url('../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf');
+}
+
+body{
+    font-family: 'source';
+    letter-spacing: -1.1px;
+}
+
+/* set the large */
+@media screen and (min-width : 992px){
+  .lg-input{
+    width : 650px !important;
+  }
+}
+
+@media screen and (max-width: 992px){
+  .lg-input{
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .lg-input{
+    width: 100% !important;
+  }
+}
+
+body{
+  background-color: #f2f2f2;
+}
+
+.mt-6{
+  margin-top: 4.0rem !important;
+}

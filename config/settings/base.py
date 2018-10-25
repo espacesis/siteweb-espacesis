@@ -62,7 +62,9 @@ THIRD_PARTY_APPS = [
     'bootstrap4',
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'accounts.apps.AccountsConfig',
+]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -177,7 +179,7 @@ TEMPLATES = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-#AUTH_USER_MODEL = 'accounts.UserModel'
+AUTH_USER_MODEL = 'accounts.UserModel'
 
 # Default settings
 BOOTSTRAP4 = {

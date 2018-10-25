@@ -1,0 +1,89 @@
+{% extends "base/index.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+    <div class="container mt-lg-5 mt-5">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="mt-5 d-sm-none d-md-block">
+                    <h1 class="h3 text-capitalize">{% trans 'La révolution commence maintenant'%} </h1>
+                    <a href="http://" class="btn btn-light btn-lg">Publier votre chanson</a>
+                </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="container">
+        <div class='row'>
+            <div class="offset-lg-2 col-sm-11 col-lg-6">
+                <input type="text" name="" class="form-control form-control-sm"  placeholder="rechercher des artistes, musiques, albums" id="">
+
+            </div>
+            <div class=" col-lg-1 col-sm-1 ml-0 mt-2 mt-lg-0 text-center">
+                <a href="" class="btn btn-primary btn-sm ">GO</a>
+            </div>
+            <div class="col-lg-3 col-sm-12 text-center mt-lg-0 mt-2">
+                <a href="" class="btn btn-primary btn-sm">Upload</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-lg-5 mt-2">
+            <div class="col-12 text-center">
+                <p class="h3">Ecoutez les meilleurs musiques sur lunazik</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            {% for music in musics %}
+                <div class="col-lg-2 col-sm-12">
+                    <img src="{{ MEDIA_URL}}{{music.picture }}" class="img-fluid" alt="{{ music.name}}">
+                    <p class="font-weight-bold h5 text-capitalize ">{{ music.name|title  }}</p>
+                    <span class="text-muted text-capitalize">{{ music.authors|title }}</span>
+                </div>
+                {% if forloop.last %}
+                    <div class="col-sm-12 text-center mt-5">
+                        <a href="{% url 'charts' %}" class="btn btn-primary btn-sm">{% trans 'Explorer les tops des chansons' %}</a>
+                    </div>
+                {% endif %}
+            {% empty %}
+                <div class="col-sm-12">
+                    <div class="text-center">
+                            <h1 class="display-2">:\</h1>
+                            <h5 class="font-weight-bold mt-5 text-capitalize">
+                                {% trans 'Merci de visiter notre site' %}
+                                <br>
+                                {% trans 'Nous ajoutons des chansons' %}
+                            </h5>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="container mt-lg-5 mt-3">
+        <div class="row">
+
+                {% for pub_1 in pub %}
+                   <div class="col-lg-3 col-md-3 mt-3 mt-lg-0">
+                        <img src="{{MEDIA_URL}}{{pub_1.image}}" class="img-fluid" alt="">
+                    </div>
+                {% endfor %}
+
+        </div>
+    </div>
+
+
+
+{% endblock content %}

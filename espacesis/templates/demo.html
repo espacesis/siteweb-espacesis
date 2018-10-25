@@ -1,0 +1,31 @@
+{% extends 'base/index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block css %}
+  {#<link rel="stylesheet" href="{% static 'css/demo/cover.css' %}">#}
+  <style>
+    body{
+      background-color: #f78f5a;
+    }
+  </style>
+{% endblock css %}
+
+{% block content %}
+
+<div class="">
+  <div class="container-fluid">
+    <div class="col-lg-4 offset-lg-4 col-sm-12 offset-md-4 col-md-4">
+      <div class="pt-lg-3">
+        <img class="img-fluid" src="{% static 'img/2.jpg' %}" alt="">
+      </div>
+    </div>
+    <div class="text-center">
+      <h1 class="display-2 font-weight-bold text-capitalize text-white">{% trans 'hello' %}<span class="text-success">.</span> </h1>
+      <h1 class="display-4 font-weight-bold text-uppercase text-white">{% trans 'la révolution c\'est pour bientÔt' %}<span class="text-success">.</span> </h1>
+
+    </div>
+  </div>
+</div>
+
+{%endblock content %}
